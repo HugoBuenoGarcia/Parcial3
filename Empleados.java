@@ -1,14 +1,38 @@
+/**
+ * Gestiona un conjunto de empleados.
+ */
 public class Empleados {
+    /**
+     * Arreglo que almacena los empleados.
+     */
     public Empleado[] lista;
 
+    /**
+     * Crea una lista de empleados con la cantidad especificada.
+     *
+     * @param cantidad Número de empleados a gestionar.
+     */
     public Empleados(int cantidad) {
         lista = new Empleado[cantidad];
     }
 
+    /**
+     * Da de alta un empleado en la posición indicada.
+     *
+     * @param indice Índice en el arreglo.
+     * @param nombre Nombre del empleado.
+     * @param cargo Cargo del empleado.
+     * @param salario Salario del empleado.
+     */
     public void altaEmpleado(int indice, String nombre, String cargo, double salario) {
         lista[indice] = new Empleado(nombre, cargo, salario);
     }
 
+    /**
+     * Aumenta el salario de todos los empleados en un porcentaje dado.
+     *
+     * @param porcentaje Porcentaje de aumento.
+     */
     public void aumentarSalario(double porcentaje) {
         for (Empleado empleado : lista) {
             double nuevoSalario = empleado.getSalario() * (1 + porcentaje / 100);
@@ -16,6 +40,9 @@ public class Empleados {
         }
     }
 
+    /**
+     * Muestra la lista de empleados por consola.
+     */
     public void mostrarEmpleados() {
         System.out.println(Mensajes.LISTA_EMPLEADOS);
         for (Empleado empleado : lista) {
